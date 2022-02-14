@@ -4,27 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStrucutre
+namespace DataStructures
 {
-    internal class LinkedList
+    class LinkedList
     {
-        public Node head;
-        public void AddLast(int data)
-        { 
-            Node new_node = new Node(data);
-            
-            if(this.head == null)
-            {
-                this.head = new_node;   
-            }
+        internal Node head; //new 
+        internal void Add(int data)
+        {
+            Node node = new Node(data);
+            if (this.head == null)
+                this.head = node;
             else
             {
-                Node lastNode = GetLastNode();
-                lastNode.next = new_node;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
             }
-            Console.WriteLine("{0} Node inserted into linked list", new_node);
+            Console.WriteLine("{0} inserted into the linked list", node.data);
         }
-
-        public Node 
     }
 }
